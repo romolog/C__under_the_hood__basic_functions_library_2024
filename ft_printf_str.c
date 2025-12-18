@@ -61,14 +61,14 @@ static int	ft_print_null_ptr(char *str, t_s_printfmt *p)
 					* p->width);
 		while (!p->flag_left && fill_space > 0)
 		{
-			write(1, " ", 1);
+			ft_write(1, " ", 1);
 			fill_space--;
 		}
 		if (p->prcsn >= 6 || p->prcsn == -1)
-			write(1, "(null)", 6);
+			ft_write(1, "(null)", 6);
 		while (p->flag_left && fill_space > 0)
 		{
-			write(1, " ", 1);
+			ft_write(1, " ", 1);
 			fill_space--;
 		}
 		ft_reset_print(p);
@@ -92,16 +92,16 @@ void	ft_print_str(char *str, t_s_printfmt *print)
 	if (print->flag_left)
 	{
 		while (len--)
-			write(1, str++, 1);
+			ft_write(1, str++, 1);
 		while (fill_space--)
-			write(1, " ", 1);
+			ft_write(1, " ", 1);
 	}
 	else
 	{
 		while (fill_space--)
-			write(1, " ", 1);
+			ft_write(1, " ", 1);
 		while (len--)
-			write(1, str++, 1);
+			ft_write(1, str++, 1);
 	}
 	ft_reset_print(print);
 }

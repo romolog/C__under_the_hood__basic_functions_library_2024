@@ -55,6 +55,7 @@ INCLD_PATH = ./
 SRCS := $(addprefix $(SRC_PATH), $(C_FILES))
 OBJS_T := $(addprefix $(OBJ_PATH), $(C_FILES))
 OBJS = $(OBJS_T:.c=.o)
+HDRS = ./libft.h ./ft_printf.h ./ft_getline.h
 
 ifeq ($(origin CC), default)
 CC = cc
@@ -64,7 +65,7 @@ CC = cc
 endif
 
 CC_WWW_FLAGS = -Wall -Wextra -Werror
-CC_FLAGS = -g
+CC_FLAGS = -O2
 INCLD_FLAGS = -I$(INCLD_PATH)
 
 MAKE_LIB = ar rcs
@@ -72,10 +73,10 @@ MAKE_LIB = ar rcs
 .PHONY: all
 all: $(NAME)
 
-$(OBJS):	$(OBJ_PATH)%.o:	$(SRC_PATH)%.c
+$(OBJS):	$(OBJ_PATH)%.o:	$(SRC_PATH)%.c  $(HDRS)
 	@$(CC) $(CC_WWW_FLAGS) $(CC_FLAGS) -c $< $(INCLD_FLAGS) -o $@
 
-$(NAME):	$(OBJS) Makefile
+$(NAME):	$(OBJS) $(HDRS) Makefile
 	@$(MAKE_LIB) $(NAME) $(OBJS)
 
 .PHONY: clean

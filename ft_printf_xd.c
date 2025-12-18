@@ -18,9 +18,9 @@ static void	ft_put_ptr(unsigned int xd, t_s_printfmt *print)
 
 	base = 16;
 	if (print->cnv == 'x' && print->flag_sharp && xd)
-		write(1, "0x", 2);
+		ft_write(1, "0x", 2);
 	if (print->cnv == 'X' && print->flag_sharp && xd)
-		write(1, "0X", 2);
+		ft_write(1, "0X", 2);
 	ft_print_llu_base(xd, base, print, ft_u_len_base(xd, 16));
 }
 
@@ -53,12 +53,12 @@ void	ft_print_xd(unsigned int xd, t_s_printfmt *print)
 	{
 		ft_put_ptr(xd, print);
 		while (fill_space--)
-			write(1, " ", 1);
+			ft_write(1, " ", 1);
 	}
 	else
 	{
 		while (fill_space--)
-			write(1, " ", 1);
+			ft_write(1, " ", 1);
 		ft_put_ptr(xd, print);
 	}
 	ft_reset_print(print);

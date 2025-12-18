@@ -11,13 +11,16 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "limits.h"
 
 void	ft_putstr_fd(char *s, int fd)
 {
+	size_t max_ssize = __SIZE_MAX__ >> 1;
+
 	if (fd >= 0)
 	{
-		write(fd, s, ft_strlen(s));
+		size_t len = ft_strlen(s);
+		if (len > max_ssize || write(fd, s, len) != (ssize_t)len)
+			abort();
 	}
 }
-
-//		write(fd, "\0", 1);

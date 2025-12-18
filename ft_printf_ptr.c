@@ -18,10 +18,10 @@ static void	ft_put_ptr(unsigned long ptr, t_s_printfmt *print)
 
 	base = 16;
 	if (!ptr)
-		write(1, "(nil)", 5);
+		ft_write(1, "(nil)", 5);
 	else
 	{
-		write(1, "0x", 2);
+		ft_write(1, "0x", 2);
 		ft_print_llu_base(ptr, base, print, ft_llu_len_base(ptr, 16));
 	}
 }
@@ -51,12 +51,12 @@ void	ft_print_ptr(unsigned long ptr, t_s_printfmt *print)
 	{
 		ft_put_ptr(ptr, print);
 		while (fill_space--)
-			write(1, " ", 1);
+			ft_write(1, " ", 1);
 	}
 	else
 	{
 		while (fill_space--)
-			write(1, " ", 1);
+			ft_write(1, " ", 1);
 		ft_put_ptr(ptr, print);
 	}
 	ft_reset_print(print);

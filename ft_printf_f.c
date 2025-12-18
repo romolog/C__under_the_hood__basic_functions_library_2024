@@ -62,7 +62,7 @@ static int	ft_get_conversion(t_s_printfmt *print)
 	type_set = "cspdiuxX";
 	if (*(print->fmt) == '%')
 	{
-		write(1, "%", 1);
+		ft_write(1, "%", 1);
 		print->res++;
 		ft_reset_print(print);
 		return (2);

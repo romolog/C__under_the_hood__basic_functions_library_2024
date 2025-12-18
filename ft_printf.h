@@ -47,5 +47,6 @@ int		ft_u_len_base(unsigned int num, int base);
 void	ft_print_ptr(unsigned long ptr, t_s_printfmt *print);
 void	ft_print_idu(long long num, t_s_printfmt *print);
 void	ft_print_xd(unsigned int xd, t_s_printfmt *print);
+void	ft_write(int fdout, char *str, size_t len);
 
 #endif

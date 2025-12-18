@@ -20,14 +20,15 @@ void	ft_print_char(char character, t_s_printfmt *print)
 	if (print->flag_left == 0)
 	{
 		while (++i < print->width - 1)
-			write(1, " ", 1);
-		write(1, &character, 1);
+			ft_write(1, " ", 1);
+		ft_write(1, &character, 1);
 	}
 	else
 	{
-		write(1, &character, 1);
+		
+		ft_write(1, &character, 1);
 		while (++i < print->width - 1)
-			write(1, " ", 1);
+			ft_write(1, " ", 1);
 	}
 	if (print->width > 1)
 		print->res += (print->width - 1);

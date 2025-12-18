@@ -44,12 +44,12 @@ void	ft_print_idu(long long num, t_s_printfmt *print)
 	{
 		ft_print_long_base(num, 10, print, ft_num_len_base(num, 10));
 		while (fill_space--)
-			write(1, " ", 1);
+			ft_write(1, " ", 1);
 	}
 	else
 	{
 		while (fill_space--)
-			write(1, " ", 1);
+			ft_write(1, " ", 1);
 		ft_print_long_base(num, 10, print, ft_num_len_base(num, 10));
 	}
 	ft_reset_print(print);

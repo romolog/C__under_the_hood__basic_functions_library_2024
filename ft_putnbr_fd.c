@@ -23,17 +23,22 @@ static void	ft_print_int(int num, int fd)
 			p = '0' + (num % 10);
 		else
 			p = '0' - (num % 10);
-		write (fd, &p, 1);
+		if (write (fd, &p, 1) != 1)
+			abort();
 	}
 	else
 	{
 		if (num < 0)
-			write(fd, "-", 1);
+		{
+			if (write(fd, "-", 1) != 1)
+				abort();
+		}
 		if ((num % 10) > 0)
 			p = '0' + (num % 10);
 		else
 			p = '0' - (num % 10);
-		write (fd, &p, 1);
+		if (write (fd, &p, 1) != 1)
+			abort();
 	}
 }
 
@@ -45,10 +50,3 @@ void	ft_putnbr_fd(int n, int fd)
 	}
 }
 
-// write(fd, "\0", 1);
-// int	main(void)
-// {
-// 	ft_putnbr_fd(-123, 1);
-// 	write(1, "\n", 1);
-// 	return (0);
-// }

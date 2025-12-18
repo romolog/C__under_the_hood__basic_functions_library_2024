@@ -16,7 +16,7 @@ static void	ft_put_zeroprefix(t_s_printfmt *p, int len, t_llu num)
 {
 	while (p->cnv != 'p' && (p->prcsn - len) > 0)
 	{
-		write(1, "0", 1);
+		ft_write(1, "0", 1);
 		len++;
 	}
 	if (p->flag_sharp && num)
@@ -24,7 +24,7 @@ static void	ft_put_zeroprefix(t_s_printfmt *p, int len, t_llu num)
 	while (p->cnv != 'p' && (p->width - len) > 0 \
 			&& p->flag_0[0] == '0' && p->prcsn == -1)
 	{
-		write(1, "0", 1);
+		ft_write(1, "0", 1);
 		len++;
 	}
 }
@@ -33,7 +33,7 @@ static void	ft_put_prefix(t_s_printfmt *p, int len, t_llu num)
 {
 	if (p->cnv != 'p' && p->flag_spc)
 	{
-		write(1, " ", 1);
+		ft_write(1, " ", 1);
 		p->width--;
 	}
 	ft_put_zeroprefix(p, len, num);
@@ -50,9 +50,9 @@ static void	ft_put_dgtbase(t_llu num, t_s_printfmt *p, int len)
 	if (p->prcsn == 0 && num == 0)
 		return ;
 	else if (p->cnv == 'X')
-		write(1, radix_up + num, 1);
+		ft_write(1, radix_up + num, 1);
 	else
-		write(1, radix_low + num, 1);
+		ft_write(1, radix_low + num, 1);
 }
 
 void	ft_print_llu_base(t_llu num, int base, t_s_printfmt *p, int len)
@@ -65,10 +65,10 @@ void	ft_print_llu_base(t_llu num, int base, t_s_printfmt *p, int len)
 	if (num > (t_llu)(base - 1))
 	{
 		ft_print_llu_base(num / base, base, p, len);
-		if (p->cnv == 'X' && (num % base) >= 0)
-			write(1, radix_up + (num % base), 1);
+		if (p->cnv == 'X')
+			ft_write(1, radix_up + (num % base), 1);
 		else
-			write(1, radix_low + (num % base), 1);
+			ft_write(1, radix_low + (num % base), 1);
 	}
 	else
 		ft_put_dgtbase(num, p, len);

@@ -16,7 +16,7 @@ static void	ft_print_letter(t_s_printfmt *print)
 {
 	while (*(print->fmt) == '%' && *(print->fmt + 1) == '%')
 	{
-		write(1, print->fmt, 1);
+		ft_write(1, print->fmt, 1);
 		print->fmt += 2;
 		print->res += 1;
 	}
@@ -28,7 +28,7 @@ static void	ft_print_letter(t_s_printfmt *print)
 		return ;
 	while (*(print->fmt) && *(print->fmt) != '%')
 	{
-		write(1, print->fmt++, 1);
+		ft_write(1, print->fmt++, 1);
 		print->res++;
 	}
 }

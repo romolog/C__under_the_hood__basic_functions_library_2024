@@ -16,14 +16,13 @@ void	ft_putendl_fd(char *s, int fd)
 {
 	if (fd >= 0)
 	{
-		write(fd, s, ft_strlen(s));
-		write(fd, "\n", 1);
+		size_t max_ssize = __SIZE_MAX__ >> 1;
+		size_t len = ft_strlen(s);
+
+		if (len > max_ssize || write(fd, s, len) != (ssize_t)len)
+			abort();
+		if (write(fd, "\n", 1) != 1)
+			abort();
 	}
 }
 
-//write(fd, "\n\0", 2);
-// int main()
-// {
-// 	ft_putendl_fd("lorem ipsum dolor sit amet", 2);
-// 	//write(1, "\n", 1);
-// }

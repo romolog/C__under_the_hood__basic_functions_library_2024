@@ -34,7 +34,7 @@ C_FILES =\
 		ft_itoa.c			ft_printf_xd.c	\
 		ft_strmapi.c		ft_getline.c	\
 		ft_striteri.c		ft_getline_utils.c	\
-		ft_putchar_fd.c		\
+		ft_putchar_fd.c		ft_write.c
 		ft_putstr_fd.c		\
 		ft_putendl_fd.c		\
 		ft_putnbr_fd.c		\

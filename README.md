@@ -21,6 +21,6 @@ You can explore my 42 functions with VSCode or any other suitable IDE.
 
 ```bash
 git clone https://github.com/romolog/C__under_the_hood__basic_functions_library_2024 basic_lib;
-cd basic_lib;
+cd basic_lib/lib;
 make;
 ```

@@ -3,8 +3,7 @@
 I wrote a bunch of basic functions from scratch and put them into a library.
 
 * 42 functions written
-* gcc
-* cmake
+* makefile
 
 ---
 
